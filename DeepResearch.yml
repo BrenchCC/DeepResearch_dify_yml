@@ -1,0 +1,2222 @@
+app:
+  description: ''
+  icon: 🔍
+  icon_background: '#D1E9FF'
+  mode: advanced-chat
+  name: 大模型AI日报+DeepResearch
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.16@d41b09aca46cdd3876f70b4c91d464c4588fc0bdc844ced6ee426283ead6ce8e
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/json_process:0.0.2@dde6d7b676ccdcea89206d29232181a840170c19277d3d978e27cd1e3c92c707
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tavily:0.0.5@7f277f7a63e36b1b3e9ed53e55daab0b281599d14902664bade86215f5374f06
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/volcengine_maas:0.0.21@4a3ffcf4d1650fa3e08f9bdab73e957741703ec841dc77d9419c3df3048275bf
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables:
+  - description: ''
+    id: 07ea9b5b-edf2-471d-8206-50e95e7ab87e
+    name: topics
+    selector:
+    - conversation
+    - topics
+    value: []
+    value_type: array[string]
+  - description: ''
+    id: a9049588-f66f-4c3a-a30e-5952a677baa9
+    name: nextSearchTopic
+    selector:
+    - conversation
+    - nextSearchTopic
+    value: ''
+    value_type: string
+  - description: ''
+    id: 2e0a2539-345c-4723-8b1b-b653e1a0caef
+    name: findings
+    selector:
+    - conversation
+    - findings
+    value: []
+    value_type: array[string]
+  - description: ''
+    id: 23d208d1-a50d-468c-8757-ad49da0886e1
+    name: shouldContinue
+    selector:
+    - conversation
+    - shouldContinue
+    value: 'true'
+    value_type: string
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: true
+        iteration_id: '1739244888446'
+        sourceType: llm
+        targetType: tool
+      id: 1739245286499-source-1739245446901-target
+      selected: false
+      source: '1739245286499'
+      sourceHandle: source
+      target: '1739245446901'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1739244888446'
+        sourceType: llm
+        targetType: tool
+      id: 1739245286499-source-1739245524260-target
+      selected: false
+      source: '1739245286499'
+      sourceHandle: source
+      target: '1739245524260'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1739229221219-source-1739245548624-target
+      selected: false
+      source: '1739229221219'
+      sourceHandle: source
+      target: '1739245548624'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1739245548624-source-1739244888446-target
+      selected: false
+      source: '1739245548624'
+      sourceHandle: source
+      target: '1739244888446'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1739244888446'
+        sourceType: tool
+        targetType: assigner
+      id: 1739245446901-source-1739245826988-target
+      selected: false
+      source: '1739245446901'
+      sourceHandle: source
+      target: '1739245826988'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: llm
+      id: 1739244888446-source-1739246156652-target
+      selected: false
+      source: '1739244888446'
+      sourceHandle: source
+      target: '1739246156652'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1739246156652-source-answer-target
+      selected: false
+      source: '1739246156652'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1739244888446'
+        sourceType: tool
+        targetType: assigner
+      id: 1739245524260-source-1739245826988-target
+      selected: false
+      source: '1739245524260'
+      sourceHandle: source
+      target: '1739245826988'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1739244888446'
+        sourceType: assigner
+        targetType: if-else
+      id: 1739245826988-source-1739245723720-target
+      selected: false
+      source: '1739245826988'
+      sourceHandle: source
+      target: '1739245723720'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1739244888446'
+        sourceType: assigner
+        targetType: template-transform
+      id: 1739246085820-source-1739254060247-target
+      selected: false
+      source: '1739246085820'
+      sourceHandle: source
+      target: '1739254060247'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1739244888446'
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1739254060247-source-1739254296073-target
+      selected: false
+      source: '1739254060247'
+      sourceHandle: source
+      target: '1739254296073'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1739244888446'
+        sourceType: variable-aggregator
+        targetType: answer
+      id: 1739254296073-source-1739253994297-target
+      selected: false
+      source: '1739254296073'
+      sourceHandle: source
+      target: '1739253994297'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1739244888446'
+        sourceType: if-else
+        targetType: template-transform
+      id: 1739245723720-false-1739254516383-target
+      selected: false
+      source: '1739245723720'
+      sourceHandle: 'false'
+      target: '1739254516383'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1739244888446'
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1739254516383-source-1739254296073-target
+      selected: false
+      source: '1739254516383'
+      sourceHandle: source
+      target: '1739254296073'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1739244888446'
+        sourceType: iteration-start
+        targetType: tool
+      id: 1739244888446start-source-1751517477408-target
+      source: 1739244888446start
+      sourceHandle: source
+      target: '1751517477408'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1739244888446'
+        sourceType: tool
+        targetType: llm
+      id: 1751517477408-source-1739245286499-target
+      source: '1751517477408'
+      sourceHandle: source
+      target: '1739245286499'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1739244888446'
+        sourceType: if-else
+        targetType: tool
+      id: 1739245723720-true-1751523520167-target
+      source: '1739245723720'
+      sourceHandle: 'true'
+      target: '1751523520167'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1739244888446'
+        sourceType: tool
+        targetType: assigner
+      id: 1751523520167-source-1739246085820-target
+      source: '1751523520167'
+      sourceHandle: source
+      target: '1739246085820'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: depth
+          max_length: 48
+          options: []
+          required: false
+          type: number
+          variable: depth
+      height: 90
+      id: '1739229221219'
+      position:
+        x: 376.1510077234577
+        y: 618.7927233544378
+      positionAbsolute:
+        x: 376.1510077234577
+        y: 618.7927233544378
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '
+
+          {{#1739246156652.text#}}'
+        desc: ''
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 105
+      id: answer
+      position:
+        x: 1798.545252710046
+        y: 821.1664293866398
+      positionAbsolute:
+        x: 1798.545252710046
+        y: 821.1664293866398
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 748
+        is_parallel: false
+        iterator_selector:
+        - '1739245548624'
+        - array
+        output_selector:
+        - '1739254296073'
+        - output
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1739244888446start
+        title: Iteration
+        type: iteration
+        width: 1135
+      height: 748
+      id: '1739244888446'
+      position:
+        x: 638.4554541837963
+        y: 700.8486432537061
+      positionAbsolute:
+        x: 638.4554541837963
+        y: 700.8486432537061
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 1135
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1739244888446start
+      parentId: '1739244888446'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 662.4554541837963
+        y: 768.8486432537061
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        iteration_id: '1739244888446'
+        memory:
+          query_prompt_template: '## Topic
+
+            {{#sys.query#}}
+
+            {{#1751517477408.text#}}
+
+
+            ## Findings
+
+            {{#conversation.findings#}}
+
+
+            ## Searched Topics
+
+            {{#conversation.topics#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash-preview-05-20
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 2acdb5a9-823a-4ce3-8dbe-401540a61bc5
+          role: system
+          text: "```xml\n<instruction>\n作为一名研究型智能体，你的任务是系统地调查一个特定的研究主题。你需要根据你的研究，完成以下任务：\n\
+            \n1. 总结你目前已发现的关键信息和结论。\n2. 指出仍未解决的问题或尚不明确的部分。\n3. 提出接下来值得进一步研究的具体方向或子议题。\n\
+            \n你的输出应该是一个严格的JSON对象，不包含任何额外内容，如注释、代码块、自然语言说明等。JSON对象应该包含以下两个键值对：\n\n\
+            1. \"nextSearchTopic\"：这是你认为值得进一步研究的子主题。如果你认为没有需要进一步研究的子主题，这个值应该为null。这个子主题应该具有明确的方向，便于继续搜索。每次只能输出一个具体的子主题。\n\
+            2. \"shouldContinue\"：这是一个布尔值，表示是否应该继续研究。如果你认为研究已经完成，这个值应该为false。\n\n\
+            注意，你的输出不应该包含与之前完全相同的搜索主题。\n</instruction>\n\n<example>\n例如，如果你正在研究大模型中的检索增强生成（RAG）架构，你可能已经发现了一些关键信息和结论，但还有一些问题尚未解决。你可能认为值得进一步研究的子主题是\"\
+            大模型中的检索增强生成（RAG）架构优化策略\"，并认为应该继续研究。那么，你的输出应该是：\n\n{\n  \"nextSearchTopic\"\
+            : \"大模型中的检索增强生成（RAG）架构优化策略\",\n  \"shouldContinue\": true\n}\n\n如果你认为你已经完成了所有的研究，那么你的输出应该是：\n\
+            \n{\n  \"nextSearchTopic\": null,\n  \"shouldContinue\": false\n}\n</example>\n\
+            ```"
+        selected: false
+        structured_output:
+          schema:
+            properties:
+              nextSearchTopic:
+                type: string
+              shouldContinue:
+                type: boolean
+            required:
+            - nextSearchTopic
+            - shouldContinue
+            type: object
+        structured_output_enabled: true
+        title: 搜索init
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1739245286499'
+      parentId: '1739244888446'
+      position:
+        x: 445.1478986252232
+        y: 65
+      positionAbsolute:
+        x: 1083.6033528090195
+        y: 765.8486432537061
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1739244888446'
+        provider_id: json_process
+        provider_name: json_process
+        provider_type: builtin
+        selected: false
+        title: Extract nextSearchTopic
+        tool_configurations:
+          ensure_ascii: 1
+        tool_label: JSON Parse
+        tool_name: parse
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1739245286499.text#}}'
+          json_filter:
+            type: mixed
+            value: nextSearchTopic
+        type: tool
+      height: 90
+      id: '1739245446901'
+      parentId: '1739244888446'
+      position:
+        x: 95.17718626491762
+        y: 189.80176310361674
+      positionAbsolute:
+        x: 733.6326404487139
+        y: 890.6504063573228
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1739244888446'
+        provider_id: json_process
+        provider_name: json_process
+        provider_type: builtin
+        selected: false
+        title: Extract shouldContinue
+        tool_configurations:
+          ensure_ascii: 1
+        tool_label: JSON Parse
+        tool_name: parse
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1739245286499.text#}}'
+          json_filter:
+            type: mixed
+            value: shouldContinue
+        type: tool
+      height: 90
+      id: '1739245524260'
+      parentId: '1739244888446'
+      position:
+        x: 94.95825424898578
+        y: 287.9298146402118
+      positionAbsolute:
+        x: 733.4137084327821
+        y: 988.7784578939179
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(depth: int) -> dict:\n    depth = depth or 3\n    array\
+          \ = list(range(depth))\n    return {\n        \"array\": array,\n      \
+          \  \"depth\": depth\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          array:
+            children: null
+            type: array[number]
+          depth:
+            children: null
+            type: number
+        selected: false
+        title: Create Array
+        type: code
+        variables:
+        - value_selector:
+          - '1739229221219'
+          - depth
+          variable: depth
+      height: 54
+      id: '1739245548624'
+      position:
+        x: 376.1510077234577
+        y: 780.3194870822305
+      positionAbsolute:
+        x: 376.1510077234577
+        y: 780.3194870822305
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: b3169e80-3090-4a5b-8df4-3148d7afcb4d
+            value: 'True'
+            varType: string
+            variable_selector:
+            - '1739245524260'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        isInIteration: true
+        iteration_id: '1739244888446'
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 126
+      id: '1739245723720'
+      parentId: '1739244888446'
+      position:
+        x: 89.04326462925235
+        y: 531.4583343420265
+      positionAbsolute:
+        x: 727.4987188130486
+        y: 1232.3069775957326
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1739245446901'
+          - text
+          variable_selector:
+          - conversation
+          - nextSearchTopic
+          write_mode: over-write
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1739245524260'
+          - text
+          variable_selector:
+          - conversation
+          - shouldContinue
+          write_mode: over-write
+        - input_type: variable
+          operation: append
+          value:
+          - conversation
+          - nextSearchTopic
+          variable_selector:
+          - conversation
+          - topics
+          write_mode: over-write
+        iteration_id: '1739244888446'
+        selected: false
+        title: 变量赋值
+        type: assigner
+        version: '2'
+      height: 144
+      id: '1739245826988'
+      parentId: '1739244888446'
+      position:
+        x: 91.41995188345959
+        y: 383.2261100750766
+      positionAbsolute:
+        x: 729.8754060672559
+        y: 1084.0747533287827
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        items:
+        - input_type: variable
+          operation: append
+          value:
+          - '1751523520167'
+          - text
+          variable_selector:
+          - conversation
+          - findings
+          write_mode: over-write
+        iteration_id: '1739244888446'
+        selected: false
+        title: findings赋值
+        type: assigner
+        version: '2'
+      height: 88
+      id: '1739246085820'
+      parentId: '1739244888446'
+      position:
+        x: 612.1742974311239
+        y: 281.60049378237363
+      positionAbsolute:
+        x: 1250.6297516149202
+        y: 982.4491370360797
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: "## topic\n{{#sys.query#}}\n\n\n# findings \n{{#conversation.findings#}}\n"
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+            thinking: enabled
+          mode: chat
+          name: 豆包1.6
+          provider: langgenius/volcengine_maas/volcengine_maas
+        prompt_template:
+        - id: 89c17d58-6a63-4f4f-98fe-f6534ec1ecb0
+          role: system
+          text: "```xml\n<instruction>\n作为一位研究型智能体，你的任务是根据提供的研究主题和调研发现，撰写一篇中文专题分析报告。报告应包括以下三大部分：\n\
+            ## 研究主题 {{#sys.query#}} \n## 调研发现 {{#conversation.findings#}}\n1. 关键洞见：在这一部分，你需要总结出调研发现中的关键信息，这些信息应该是对研究主题有深刻理解的关键。请确保你的总结逻辑清晰，表达准确。\n\
+            \n2. 主要结论：在这一部分，你需要根据关键洞见得出主要结论。这些结论应该是对研究主题的深入理解和解释。请确保你的结论语言精炼，内容具备专业性和深度。\n\
+            \n3. 尚未解决的问题或不确定性：在这一部分，你需要指出在研究主题中仍存在的问题或不确定性。这些问题或不确定性应该是对研究主题的进一步探索和研究。\n\
+            \n在撰写报告的过程中，你必须综合并引用调研发现中的来源链接（如官方博客、论文、技术文章等），作为资料支撑。请在报告的最后列出参考资料。\n\
+            \n请注意，你的报告应该避免使用任何XML标签。\n\n</instruction>\n\n<example>\n例如，如果研究主题是\"\
+            GPT模型架构原理与演进\"，调研发现包括了一些关于GPT模型的文章摘要和URL链接，那么你的报告可能是这样的：\n\n## 研究主题\n\
+            GPT模型架构原理与演进\n\n## 专题分析\n\n### 一、关键洞见\nGPT模型是一种基于Transformer的语言模型，它的主要特点是使用了自回归的方式进行训练...\n\
+            \n### 二、主要结论\nGPT模型的架构原理和演进对于自然语言处理领域有着重要的影响...\n\n### 三、尚未解决的问题\n尽管GPT模型在许多任务上表现出色，但它仍然存在一些问题和不确定性，例如...\n\
+            \n**参考资料：**\n- [GPT模型的架构原理](链接)\n- [GPT模型的演进](链接)\n- ...\n</example>\n\
+            \n<example>\n如果研究主题是\"深度学习在医疗影像识别中的应用\"，调研发现包括了一些关于深度学习和医疗影像识别的文章摘要和URL链接，那么你的报告可能是这样的：\n\
+            \n## 研究主题\n深度学习在医疗影像识别中的应用\n\n## 专题分析\n\n### 一、关键洞见\n深度学习技术在医疗影像识别中的应用已经取得了显著的进展...\n\
+            \n### 二、主要结论\n深度学习在医疗影像识别中的应用不仅可以提高识别的准确性，还可以大大提高医生的工作效率...\n\n### 三、尚未解决的问题\n\
+            尽管深度学习在医疗影像识别中的应用取得了一些成果，但仍然存在一些问题和不确定性，例如...\n\n**参考资料：**\n- [深度学习在医疗影像识别中的应用](链接)\n\
+            - [深度学习技术的发展](链接)\n- ...\n</example>\n\n<example>\n如果研究主题是\"区块链技术在金融领域的应用\"\
+            ，调研发现包括了一些关于区块链技术和金融应用的文章摘要和URL链接，那么你的报告可能是这样的：\n\n## 研究主题\n区块链技术在金融领域的应用\n\
+            \n## 专题分析\n\n### 一、关键洞见\n区块链技术在金融领域的应用已经从理论走向了实践...\n\n### 二、主要结论\n区块链技术在金融领域的应用可以提高交易的透明度和效率...\n\
+            \n### 三、尚未解决的问题\n尽管区块链技术在金融领域的应用取得了一些成果，但仍然存在一些问题和不确定性，例如...\n\n**参考资料：**\n\
+            - [区块链技术在金融领域的应用](链接)\n- [区块链技术的发展](链接)\n- ...\n</example>\n```"
+        selected: false
+        title: Reasoning Model
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1739246156652'
+      position:
+        x: 1798.545252710046
+        y: 700.8486432537061
+      positionAbsolute:
+        x: 1798.545252710046
+        y: 700.8486432537061
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1739254296073.output#}}'
+        desc: ''
+        isInIteration: true
+        iteration_id: '1739244888446'
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 105
+      id: '1739253994297'
+      parentId: '1739244888446'
+      position:
+        x: 871.1577557795797
+        y: 417.02429435615113
+      positionAbsolute:
+        x: 1509.613209963376
+        y: 1117.8729376098572
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1739244888446'
+        selected: false
+        template: '已完成第 {{ index + 1 }} 次搜索（共 {{ depth }} 次）
+
+
+
+          '
+        title: 中间结果输出格式
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1739244888446'
+          - index
+          variable: index
+        - value_selector:
+          - '1739229221219'
+          - depth
+          variable: depth
+        - value_selector:
+          - conversation
+          - findings
+          value_type: array[string]
+          variable: findings
+      height: 54
+      id: '1739254060247'
+      parentId: '1739244888446'
+      position:
+        x: 611.463111128465
+        y: 400.37693560111916
+      positionAbsolute:
+        x: 1249.9185653122613
+        y: 1101.2255788548252
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1739244888446'
+        output_type: string
+        selected: false
+        title: 汇总变量
+        type: variable-aggregator
+        variables:
+        - - '1739254060247'
+          - output
+        - - '1739254516383'
+          - output
+      height: 131
+      id: '1739254296073'
+      parentId: '1739244888446'
+      position:
+        x: 603.9286950285871
+        y: 466.7722615640025
+      positionAbsolute:
+        x: 1242.3841492123834
+        y: 1167.6209048177086
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1739244888446'
+        selected: false
+        template: ' '
+        title: Empty
+        type: template-transform
+        variables: []
+      height: 54
+      id: '1739254516383'
+      parentId: '1739244888446'
+      position:
+        x: 357.78458230187107
+        y: 584.483984525373
+      positionAbsolute:
+        x: 996.2400364856674
+        y: 1285.332627779079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        author: LofiSu
+        desc: ''
+        height: 349
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"从
+          “EXTRACT NEXTSEARCHTOPIC” 和 “EXTRACT SHOULDCONTINUE” 节点中提取的值，分别覆盖赋值给变量 ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"nextSearchTopic","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          和 ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"shouldContinue","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"。","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"然后将
+          ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"nextSearchTopic","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          的值添加到 ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"topics","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          数组中，逐步形成一个搜索主题列表。在你每轮研究总结中，智能体通过分析当前话题，总结出","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"尚未被探索但重要的相关子话题","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"；","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"然后会从中选一个，作为
+          ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"nextSearchTopic","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"；","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"其他没被选中的候选
+          topic，","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"如果你有一个多轮的搜索系统（例如在
+          UI 或记忆里维护了一个 topic list）","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"，就可以把这些追加
+          topics 存进去作为“待处理队列”。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 394
+      height: 349
+      id: '1751513525205'
+      position:
+        x: 225.31781309480698
+        y: 1129.0589191708864
+      positionAbsolute:
+        x: 225.31781309480698
+        y: 1129.0589191708864
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 394
+    - data:
+        author: LofiSu
+        desc: ''
+        height: 379
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"只需要输入你想搜索的内容，它就会反复执行搜索并生成一份报告。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"用户输入阶段：","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"用户输入一个初始问题（sys.query）以及希望进行的深度研究次数（depth默认3次）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"搜索初始化：","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"通过Generative
+          Pretrained Transformer 对初始问题进行分析，提取出搜索主题，并判断是否需要进一步搜索。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"迭代搜索：","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"根据指定的深度系统将进行多轮搜索迭代。在每一轮中都会基于前一轮提取出的搜索肢体使用Tavily搜索引擎进行搜索并收集搜索结果。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Tavily介绍：Tavily是一个为大型语言模型（LLMs）和检索增强生成（RAG）优化的搜索引擎，旨在提供高效、快速且持久的搜索结果。该产品由Tavily团队开发，目标用户是AI开发者、研究人员以及需要实时、准确、有根据的信息的企业。Tavily
+          Search API通过连接LLMs和AI应用程序到可信赖的实时知识，减少了幻觉和整体偏见，帮助AI做出更好的决策。https://www.cnblogs.com/fuminer/p/18828565","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"同时会通过GPT判断是否需要继续搜索，从而控制整个迭代流程。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"分析与总结：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"当迭代搜索结束，系统将调用ressoner模型对已收集到的信息进行全面分析总结。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 422
+      height: 379
+      id: '1751513560534'
+      position:
+        x: 659.6448806207255
+        y: 305.66691592712385
+      positionAbsolute:
+        x: 659.6448806207255
+        y: 305.66691592712385
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 422
+    - data:
+        author: LofiSu
+        desc: ''
+        height: 360
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"主函数接收一个包含depth的参数，depth可以自定义选填或者是3次。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"array
+          = list(range(depth))","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":16,"mode":"normal","style":"","text":"range(depth)","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          会生成一个从 ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"0","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          开始、到 ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"depth
+          - 1","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          为止的整数序列；","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"textFormat":16,"value":1},{"children":[{"detail":0,"format":16,"mode":"normal","style":"","text":"list(...)","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          把这个 ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"range","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          对象转换为真正的 Python 列表（array）。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"textFormat":16,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"如果
+          ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"depth
+          = 3","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"，那么
+          ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"range(3)","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          就是 ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"[0,
+          1, 2]","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"；","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"最终
+          ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"array
+          = [0, 1, 2]","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":4},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"最后返回一个字典（dict），包含两个键值对：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":5},{"children":[{"detail":0,"format":16,"mode":"normal","style":"","text":"\"array\"","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"：就是前面生成的整数数组；","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"textFormat":16,"value":6},{"children":[{"detail":0,"format":16,"mode":"normal","style":"","text":"\"depth\"","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"：是最终使用的
+          ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"depth","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          值（可能是默认的 3，也可能是用户传入的有效值）。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"textFormat":16,"value":7}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"textFormat":16,"listType":"bullet","start":1,"tag":"ul"},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1,"textFormat":16}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 262
+      height: 360
+      id: '1751513634014'
+      position:
+        x: 67.3816201339979
+        y: 780.3194870822305
+      positionAbsolute:
+        x: 67.3816201339979
+        y: 780.3194870822305
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 262
+    - data:
+        author: LofiSu
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"从
+          JSON 中提取 ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"shouldContinue","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          字段的值。text output by the “LLM” ","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1751513956786'
+      position:
+        x: 383.8508945602682
+        y: 1006.2315211273674
+      positionAbsolute:
+        x: 383.8508945602682
+        y: 1006.2315211273674
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: LofiSu
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"从
+          JSON 中提取 ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"nextSearchTopic","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          字段的值。text output by the “LLM” ","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1751513966607'
+      position:
+        x: 383.8508945602682
+        y: 890.724951647048
+      positionAbsolute:
+        x: 383.8508945602682
+        y: 890.724951647048
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        is_team_authorization: true
+        iteration_id: '1739244888446'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: '%Y-%m-%d %H:%M:%S'
+          form: form
+          human_description:
+            en_US: Time format in strftime standard.
+            ja_JP: Time format in strftime standard.
+            pt_BR: Time format in strftime standard.
+            zh_Hans: strftime 标准的时间格式。
+          label:
+            en_US: Format
+            ja_JP: Format
+            pt_BR: Format
+            zh_Hans: 格式
+          llm_description: null
+          max: null
+          min: null
+          name: format
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: UTC
+          form: form
+          human_description:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          label:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          llm_description: null
+          max: null
+          min: null
+          name: timezone
+          options:
+          - icon: null
+            label:
+              en_US: UTC
+              ja_JP: UTC
+              pt_BR: UTC
+              zh_Hans: UTC
+            value: UTC
+          - icon: null
+            label:
+              en_US: America/New_York
+              ja_JP: America/New_York
+              pt_BR: America/New_York
+              zh_Hans: 美洲/纽约
+            value: America/New_York
+          - icon: null
+            label:
+              en_US: America/Los_Angeles
+              ja_JP: America/Los_Angeles
+              pt_BR: America/Los_Angeles
+              zh_Hans: 美洲/洛杉矶
+            value: America/Los_Angeles
+          - icon: null
+            label:
+              en_US: America/Chicago
+              ja_JP: America/Chicago
+              pt_BR: America/Chicago
+              zh_Hans: 美洲/芝加哥
+            value: America/Chicago
+          - icon: null
+            label:
+              en_US: America/Sao_Paulo
+              ja_JP: America/Sao_Paulo
+              pt_BR: América/São Paulo
+              zh_Hans: 美洲/圣保罗
+            value: America/Sao_Paulo
+          - icon: null
+            label:
+              en_US: Asia/Shanghai
+              ja_JP: Asia/Shanghai
+              pt_BR: Asia/Shanghai
+              zh_Hans: 亚洲/上海
+            value: Asia/Shanghai
+          - icon: null
+            label:
+              en_US: Asia/Ho_Chi_Minh
+              ja_JP: Asia/Ho_Chi_Minh
+              pt_BR: Ásia/Ho Chi Minh
+              zh_Hans: 亚洲/胡志明市
+            value: Asia/Ho_Chi_Minh
+          - icon: null
+            label:
+              en_US: Asia/Tokyo
+              ja_JP: Asia/Tokyo
+              pt_BR: Asia/Tokyo
+              zh_Hans: 亚洲/东京
+            value: Asia/Tokyo
+          - icon: null
+            label:
+              en_US: Asia/Dubai
+              ja_JP: Asia/Dubai
+              pt_BR: Asia/Dubai
+              zh_Hans: 亚洲/迪拜
+            value: Asia/Dubai
+          - icon: null
+            label:
+              en_US: Asia/Kolkata
+              ja_JP: Asia/Kolkata
+              pt_BR: Asia/Kolkata
+              zh_Hans: 亚洲/加尔各答
+            value: Asia/Kolkata
+          - icon: null
+            label:
+              en_US: Asia/Seoul
+              ja_JP: Asia/Seoul
+              pt_BR: Asia/Seoul
+              zh_Hans: 亚洲/首尔
+            value: Asia/Seoul
+          - icon: null
+            label:
+              en_US: Asia/Singapore
+              ja_JP: Asia/Singapore
+              pt_BR: Asia/Singapore
+              zh_Hans: 亚洲/新加坡
+            value: Asia/Singapore
+          - icon: null
+            label:
+              en_US: Europe/London
+              ja_JP: Europe/London
+              pt_BR: Europe/London
+              zh_Hans: 欧洲/伦敦
+            value: Europe/London
+          - icon: null
+            label:
+              en_US: Europe/Berlin
+              ja_JP: Europe/Berlin
+              pt_BR: Europe/Berlin
+              zh_Hans: 欧洲/柏林
+            value: Europe/Berlin
+          - icon: null
+            label:
+              en_US: Europe/Moscow
+              ja_JP: Europe/Moscow
+              pt_BR: Europe/Moscow
+              zh_Hans: 欧洲/莫斯科
+            value: Europe/Moscow
+          - icon: null
+            label:
+              en_US: Australia/Sydney
+              ja_JP: Australia/Sydney
+              pt_BR: Australia/Sydney
+              zh_Hans: 澳大利亚/悉尼
+            value: Australia/Sydney
+          - icon: null
+            label:
+              en_US: Pacific/Auckland
+              ja_JP: Pacific/Auckland
+              pt_BR: Pacific/Auckland
+              zh_Hans: 太平洋/奥克兰
+            value: Pacific/Auckland
+          - icon: null
+            label:
+              en_US: Africa/Cairo
+              ja_JP: Africa/Cairo
+              pt_BR: Africa/Cairo
+              zh_Hans: 非洲/开罗
+            value: Africa/Cairo
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          format: ''
+          timezone: ''
+        provider_id: time
+        provider_name: time
+        provider_type: builtin
+        selected: false
+        title: 获取当前时间
+        tool_configurations:
+          format: '%Y-%m-%d %H:%M:%S'
+          timezone: Asia/Shanghai
+        tool_description: 一个用于获取当前时间的工具。
+        tool_label: 获取当前时间
+        tool_name: current_time
+        tool_parameters: {}
+        type: tool
+      height: 116
+      id: '1751517477408'
+      parentId: '1739244888446'
+      position:
+        x: 97.514846888492
+        y: 65
+      positionAbsolute:
+        x: 735.9703010722883
+        y: 765.8486432537061
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        agent_parameters:
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: 专为人工智能代理 (LLM) 构建的搜索引擎工具，可快速提供实时、准确和真实的结果。
+              parameters:
+                days:
+                  auto: 1
+                  value: null
+                query:
+                  auto: 1
+                  value: null
+                search_depth:
+                  auto: 1
+                  value: null
+                time_range:
+                  auto: 1
+                  value: null
+                topic:
+                  auto: 1
+                  value: null
+              provider_name: langgenius/tavily/tavily
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: The search query you want to execute with Tavily.
+                  ja_JP: The search query you want to execute with Tavily.
+                  pt_BR: The search query you want to execute with Tavily.
+                  zh_Hans: 您想用 Tavily 执行的搜索查询。
+                label:
+                  en_US: Query
+                  ja_JP: Query
+                  pt_BR: Query
+                  zh_Hans: 查询
+                llm_description: The search query.
+                max: null
+                min: null
+                name: query
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: basic
+                form: llm
+                human_description:
+                  en_US: The depth of the search.
+                  ja_JP: The depth of the search.
+                  pt_BR: The depth of the search.
+                  zh_Hans: 搜索的深度。
+                label:
+                  en_US: Search Depth
+                  ja_JP: Search Depth
+                  pt_BR: Search Depth
+                  zh_Hans: 搜索深度
+                llm_description: The depth of the search. 'basic' for standard search,
+                  'advanced' for more comprehensive results.
+                max: null
+                min: null
+                name: search_depth
+                options:
+                - icon: ''
+                  label:
+                    en_US: Basic
+                    ja_JP: Basic
+                    pt_BR: Basic
+                    zh_Hans: 基本
+                  value: basic
+                - icon: ''
+                  label:
+                    en_US: Advanced
+                    ja_JP: Advanced
+                    pt_BR: Advanced
+                    zh_Hans: 高级
+                  value: advanced
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: select
+              - auto_generate: null
+                default: general
+                form: llm
+                human_description:
+                  en_US: The category of the search.
+                  ja_JP: The category of the search.
+                  pt_BR: The category of the search.
+                  zh_Hans: 搜索的类别。
+                label:
+                  en_US: Topic
+                  ja_JP: Topic
+                  pt_BR: Topic
+                  zh_Hans: 主题
+                llm_description: The category of the search. Options include 'general',
+                  'news', or 'finance'.
+                max: null
+                min: null
+                name: topic
+                options:
+                - icon: ''
+                  label:
+                    en_US: General
+                    ja_JP: General
+                    pt_BR: General
+                    zh_Hans: 一般
+                  value: general
+                - icon: ''
+                  label:
+                    en_US: News
+                    ja_JP: News
+                    pt_BR: News
+                    zh_Hans: 新闻
+                  value: news
+                - icon: ''
+                  label:
+                    en_US: Finance
+                    ja_JP: Finance
+                    pt_BR: Finance
+                    zh_Hans: 金融
+                  value: finance
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: select
+              - auto_generate: null
+                default: 3
+                form: llm
+                human_description:
+                  en_US: The number of days back from the current date to include
+                    in the search results (only applicable when "topic" is "news").
+                  ja_JP: The number of days back from the current date to include
+                    in the search results (only applicable when "topic" is "news").
+                  pt_BR: The number of days back from the current date to include
+                    in the search results (only applicable when "topic" is "news").
+                  zh_Hans: 从当前日期起向前追溯的天数，以包含在搜索结果中（仅当"topic"为"news"时适用）。
+                label:
+                  en_US: Days
+                  ja_JP: Days
+                  pt_BR: Days
+                  zh_Hans: 天数
+                llm_description: The number of days back from the current date to
+                  include in the search results. Only applicable when "topic" is "news".
+                max: null
+                min: 1
+                name: days
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: number
+              - auto_generate: null
+                default: not_specified
+                form: llm
+                human_description:
+                  en_US: The time range back from the current date to filter results.
+                  ja_JP: The time range back from the current date to filter results.
+                  pt_BR: The time range back from the current date to filter results.
+                  zh_Hans: 从当前日期起向后筛选结果的时间范围。
+                label:
+                  en_US: Time Range
+                  ja_JP: Time Range
+                  pt_BR: Time Range
+                  zh_Hans: 时间范围
+                llm_description: The time range back from the current date to filter
+                  results. Options include 'not_specified', 'day', 'week', 'month',
+                  or 'year'.
+                max: null
+                min: null
+                name: time_range
+                options:
+                - icon: ''
+                  label:
+                    en_US: Not Specified
+                    ja_JP: Not Specified
+                    pt_BR: Not Specified
+                    zh_Hans: 不指定
+                  value: not_specified
+                - icon: ''
+                  label:
+                    en_US: Day
+                    ja_JP: Day
+                    pt_BR: Day
+                    zh_Hans: 天
+                  value: day
+                - icon: ''
+                  label:
+                    en_US: Week
+                    ja_JP: Week
+                    pt_BR: Week
+                    zh_Hans: 周
+                  value: week
+                - icon: ''
+                  label:
+                    en_US: Month
+                    ja_JP: Month
+                    pt_BR: Month
+                    zh_Hans: 月
+                  value: month
+                - icon: ''
+                  label:
+                    en_US: Year
+                    ja_JP: Year
+                    pt_BR: Year
+                    zh_Hans: 年
+                  value: year
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: select
+              - auto_generate: null
+                default: 5
+                form: form
+                human_description:
+                  en_US: The maximum number of search results to return.
+                  ja_JP: The maximum number of search results to return.
+                  pt_BR: The maximum number of search results to return.
+                  zh_Hans: 要返回的最大搜索结果数。
+                label:
+                  en_US: Max Results
+                  ja_JP: Max Results
+                  pt_BR: Max Results
+                  zh_Hans: 最大结果数
+                llm_description: The maximum number of search results to return. Range
+                  is 1-20.
+                max: 20
+                min: 1
+                name: max_results
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: number
+              - auto_generate: null
+                default: 0
+                form: form
+                human_description:
+                  en_US: Include a list of query-related images in the response.
+                  ja_JP: Include a list of query-related images in the response.
+                  pt_BR: Include a list of query-related images in the response.
+                  zh_Hans: 在响应中包含与查询相关的图片列表。
+                label:
+                  en_US: Include Images
+                  ja_JP: Include Images
+                  pt_BR: Include Images
+                  zh_Hans: 包含图片
+                llm_description: When set to true, includes a list of query-related
+                  images in the response.
+                max: null
+                min: null
+                name: include_images
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: boolean
+              - auto_generate: null
+                default: 0
+                form: form
+                human_description:
+                  en_US: When include_images is True, adds descriptive text for each
+                    image.
+                  ja_JP: When include_images is True, adds descriptive text for each
+                    image.
+                  pt_BR: When include_images is True, adds descriptive text for each
+                    image.
+                  zh_Hans: 当 include_images 为 True 时，为每个图像添加描述文本。
+                label:
+                  en_US: Include Image Descriptions
+                  ja_JP: Include Image Descriptions
+                  pt_BR: Include Image Descriptions
+                  zh_Hans: 包含图片描述
+                llm_description: When include_images is True and this is set to true,
+                  adds descriptive text for each image.
+                max: null
+                min: null
+                name: include_image_descriptions
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: boolean
+              - auto_generate: null
+                default: 0
+                form: form
+                human_description:
+                  en_US: Include a short answer to the original query in the response.
+                  ja_JP: Include a short answer to the original query in the response.
+                  pt_BR: Include a short answer to the original query in the response.
+                  zh_Hans: 在响应中包含对原始查询的简短回答。
+                label:
+                  en_US: Include Answer
+                  ja_JP: Include Answer
+                  pt_BR: Include Answer
+                  zh_Hans: 包含答案
+                llm_description: When set to true, includes a short answer to the
+                  original query in the response.
+                max: null
+                min: null
+                name: include_answer
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: boolean
+              - auto_generate: null
+                default: 0
+                form: form
+                human_description:
+                  en_US: Include the cleaned and parsed HTML content of each search
+                    result.
+                  ja_JP: Include the cleaned and parsed HTML content of each search
+                    result.
+                  pt_BR: Include the cleaned and parsed HTML content of each search
+                    result.
+                  zh_Hans: 包含每个搜索结果的已清理和解析的HTML内容。
+                label:
+                  en_US: Include Raw Content
+                  ja_JP: Include Raw Content
+                  pt_BR: Include Raw Content
+                  zh_Hans: 包含原始内容
+                llm_description: When set to true, includes the cleaned and parsed
+                  HTML content of each search result.
+                max: null
+                min: null
+                name: include_raw_content
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: boolean
+              - auto_generate: null
+                default: null
+                form: form
+                human_description:
+                  en_US: A comma-separated list of domains to specifically include
+                    in the search results.
+                  ja_JP: A comma-separated list of domains to specifically include
+                    in the search results.
+                  pt_BR: A comma-separated list of domains to specifically include
+                    in the search results.
+                  zh_Hans: 要在搜索结果中特别包含的域的逗号分隔列表。
+                label:
+                  en_US: Include Domains
+                  ja_JP: Include Domains
+                  pt_BR: Include Domains
+                  zh_Hans: 包含域
+                llm_description: A comma-separated list of domains to specifically
+                  include in the search results.
+                max: null
+                min: null
+                name: include_domains
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: form
+                human_description:
+                  en_US: A comma-separated list of domains to specifically exclude
+                    from the search results.
+                  ja_JP: A comma-separated list of domains to specifically exclude
+                    from the search results.
+                  pt_BR: A comma-separated list of domains to specifically exclude
+                    from the search results.
+                  zh_Hans: 要从搜索结果中特别排除的域的逗号分隔列表。
+                label:
+                  en_US: Exclude Domains
+                  ja_JP: Exclude Domains
+                  pt_BR: Exclude Domains
+                  zh_Hans: 排除域
+                llm_description: A comma-separated list of domains to specifically
+                  exclude from the search results.
+                max: null
+                min: null
+                name: exclude_domains
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              settings:
+                exclude_domains:
+                  value: null
+                include_answer:
+                  value: 0
+                include_domains:
+                  value: null
+                include_image_descriptions:
+                  value: 0
+                include_images:
+                  value: 0
+                include_raw_content:
+                  value: 0
+                max_results:
+                  value: 5
+              tool_description: 专为人工智能代理 (LLM) 构建的搜索引擎工具，可快速提供实时、准确和真实的结果。
+              tool_label: Tavily Search
+              tool_name: tavily_search
+              type: builtin
+        agent_strategy_label: FunctionCalling
+        agent_strategy_name: function_calling
+        agent_strategy_provider_name: langgenius/agent/agent
+        desc: ''
+        output_schema: null
+        plugin_unique_identifier: langgenius/agent:0.0.19@3850c37e0f04f6ff6f00641fc36ed1d11555b0222470c37aa715218a4c5c95fd
+        selected: false
+        title: Agent
+        type: agent
+      height: 198
+      id: '1751520117501'
+      position:
+        x: -1046.640212060308
+        y: 2436.534944271622
+      positionAbsolute:
+        x: -1046.640212060308
+        y: 2436.534944271622
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        is_team_authorization: true
+        iteration_id: '1739244888446'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The search query you want to execute with Tavily.
+            ja_JP: The search query you want to execute with Tavily.
+            pt_BR: The search query you want to execute with Tavily.
+            zh_Hans: 您想用 Tavily 执行的搜索查询。
+          label:
+            en_US: Query
+            ja_JP: Query
+            pt_BR: Query
+            zh_Hans: 查询
+          llm_description: The search query.
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: basic
+          form: llm
+          human_description:
+            en_US: The depth of the search.
+            ja_JP: The depth of the search.
+            pt_BR: The depth of the search.
+            zh_Hans: 搜索的深度。
+          label:
+            en_US: Search Depth
+            ja_JP: Search Depth
+            pt_BR: Search Depth
+            zh_Hans: 搜索深度
+          llm_description: The depth of the search. 'basic' for standard search, 'advanced'
+            for more comprehensive results.
+          max: null
+          min: null
+          name: search_depth
+          options:
+          - icon: ''
+            label:
+              en_US: Basic
+              ja_JP: Basic
+              pt_BR: Basic
+              zh_Hans: 基本
+            value: basic
+          - icon: ''
+            label:
+              en_US: Advanced
+              ja_JP: Advanced
+              pt_BR: Advanced
+              zh_Hans: 高级
+            value: advanced
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: general
+          form: llm
+          human_description:
+            en_US: The category of the search.
+            ja_JP: The category of the search.
+            pt_BR: The category of the search.
+            zh_Hans: 搜索的类别。
+          label:
+            en_US: Topic
+            ja_JP: Topic
+            pt_BR: Topic
+            zh_Hans: 主题
+          llm_description: The category of the search. Options include 'general',
+            'news', or 'finance'.
+          max: null
+          min: null
+          name: topic
+          options:
+          - icon: ''
+            label:
+              en_US: General
+              ja_JP: General
+              pt_BR: General
+              zh_Hans: 一般
+            value: general
+          - icon: ''
+            label:
+              en_US: News
+              ja_JP: News
+              pt_BR: News
+              zh_Hans: 新闻
+            value: news
+          - icon: ''
+            label:
+              en_US: Finance
+              ja_JP: Finance
+              pt_BR: Finance
+              zh_Hans: 金融
+            value: finance
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 3
+          form: llm
+          human_description:
+            en_US: The number of days back from the current date to include in the
+              search results (only applicable when "topic" is "news").
+            ja_JP: The number of days back from the current date to include in the
+              search results (only applicable when "topic" is "news").
+            pt_BR: The number of days back from the current date to include in the
+              search results (only applicable when "topic" is "news").
+            zh_Hans: 从当前日期起向前追溯的天数，以包含在搜索结果中（仅当"topic"为"news"时适用）。
+          label:
+            en_US: Days
+            ja_JP: Days
+            pt_BR: Days
+            zh_Hans: 天数
+          llm_description: The number of days back from the current date to include
+            in the search results. Only applicable when "topic" is "news".
+          max: null
+          min: 1
+          name: days
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: not_specified
+          form: llm
+          human_description:
+            en_US: The time range back from the current date to filter results.
+            ja_JP: The time range back from the current date to filter results.
+            pt_BR: The time range back from the current date to filter results.
+            zh_Hans: 从当前日期起向后筛选结果的时间范围。
+          label:
+            en_US: Time Range
+            ja_JP: Time Range
+            pt_BR: Time Range
+            zh_Hans: 时间范围
+          llm_description: The time range back from the current date to filter results.
+            Options include 'not_specified', 'day', 'week', 'month', or 'year'.
+          max: null
+          min: null
+          name: time_range
+          options:
+          - icon: ''
+            label:
+              en_US: Not Specified
+              ja_JP: Not Specified
+              pt_BR: Not Specified
+              zh_Hans: 不指定
+            value: not_specified
+          - icon: ''
+            label:
+              en_US: Day
+              ja_JP: Day
+              pt_BR: Day
+              zh_Hans: 天
+            value: day
+          - icon: ''
+            label:
+              en_US: Week
+              ja_JP: Week
+              pt_BR: Week
+              zh_Hans: 周
+            value: week
+          - icon: ''
+            label:
+              en_US: Month
+              ja_JP: Month
+              pt_BR: Month
+              zh_Hans: 月
+            value: month
+          - icon: ''
+            label:
+              en_US: Year
+              ja_JP: Year
+              pt_BR: Year
+              zh_Hans: 年
+            value: year
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 5
+          form: form
+          human_description:
+            en_US: The maximum number of search results to return.
+            ja_JP: The maximum number of search results to return.
+            pt_BR: The maximum number of search results to return.
+            zh_Hans: 要返回的最大搜索结果数。
+          label:
+            en_US: Max Results
+            ja_JP: Max Results
+            pt_BR: Max Results
+            zh_Hans: 最大结果数
+          llm_description: The maximum number of search results to return. Range is
+            1-20.
+          max: 20
+          min: 1
+          name: max_results
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Include a list of query-related images in the response.
+            ja_JP: Include a list of query-related images in the response.
+            pt_BR: Include a list of query-related images in the response.
+            zh_Hans: 在响应中包含与查询相关的图片列表。
+          label:
+            en_US: Include Images
+            ja_JP: Include Images
+            pt_BR: Include Images
+            zh_Hans: 包含图片
+          llm_description: When set to true, includes a list of query-related images
+            in the response.
+          max: null
+          min: null
+          name: include_images
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: When include_images is True, adds descriptive text for each image.
+            ja_JP: When include_images is True, adds descriptive text for each image.
+            pt_BR: When include_images is True, adds descriptive text for each image.
+            zh_Hans: 当 include_images 为 True 时，为每个图像添加描述文本。
+          label:
+            en_US: Include Image Descriptions
+            ja_JP: Include Image Descriptions
+            pt_BR: Include Image Descriptions
+            zh_Hans: 包含图片描述
+          llm_description: When include_images is True and this is set to true, adds
+            descriptive text for each image.
+          max: null
+          min: null
+          name: include_image_descriptions
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Include a short answer to the original query in the response.
+            ja_JP: Include a short answer to the original query in the response.
+            pt_BR: Include a short answer to the original query in the response.
+            zh_Hans: 在响应中包含对原始查询的简短回答。
+          label:
+            en_US: Include Answer
+            ja_JP: Include Answer
+            pt_BR: Include Answer
+            zh_Hans: 包含答案
+          llm_description: When set to true, includes a short answer to the original
+            query in the response.
+          max: null
+          min: null
+          name: include_answer
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Include the cleaned and parsed HTML content of each search result.
+            ja_JP: Include the cleaned and parsed HTML content of each search result.
+            pt_BR: Include the cleaned and parsed HTML content of each search result.
+            zh_Hans: 包含每个搜索结果的已清理和解析的HTML内容。
+          label:
+            en_US: Include Raw Content
+            ja_JP: Include Raw Content
+            pt_BR: Include Raw Content
+            zh_Hans: 包含原始内容
+          llm_description: When set to true, includes the cleaned and parsed HTML
+            content of each search result.
+          max: null
+          min: null
+          name: include_raw_content
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: A comma-separated list of domains to specifically include in the
+              search results.
+            ja_JP: A comma-separated list of domains to specifically include in the
+              search results.
+            pt_BR: A comma-separated list of domains to specifically include in the
+              search results.
+            zh_Hans: 要在搜索结果中特别包含的域的逗号分隔列表。
+          label:
+            en_US: Include Domains
+            ja_JP: Include Domains
+            pt_BR: Include Domains
+            zh_Hans: 包含域
+          llm_description: A comma-separated list of domains to specifically include
+            in the search results.
+          max: null
+          min: null
+          name: include_domains
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: A comma-separated list of domains to specifically exclude from
+              the search results.
+            ja_JP: A comma-separated list of domains to specifically exclude from
+              the search results.
+            pt_BR: A comma-separated list of domains to specifically exclude from
+              the search results.
+            zh_Hans: 要从搜索结果中特别排除的域的逗号分隔列表。
+          label:
+            en_US: Exclude Domains
+            ja_JP: Exclude Domains
+            pt_BR: Exclude Domains
+            zh_Hans: 排除域
+          llm_description: A comma-separated list of domains to specifically exclude
+            from the search results.
+          max: null
+          min: null
+          name: exclude_domains
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          days: ''
+          exclude_domains: ''
+          include_answer: ''
+          include_domains: ''
+          include_image_descriptions: ''
+          include_images: ''
+          include_raw_content: ''
+          max_results: ''
+          query: ''
+          search_depth: ''
+          time_range: ''
+          topic: ''
+        provider_id: langgenius/tavily/tavily
+        provider_name: langgenius/tavily/tavily
+        provider_type: builtin
+        selected: false
+        title: Tavily Search
+        tool_configurations:
+          exclude_domains: null
+          include_answer: 0
+          include_domains: null
+          include_image_descriptions: 0
+          include_images: 0
+          include_raw_content: 0
+          max_results: 10
+        tool_description: 专为人工智能代理 (LLM) 构建的搜索引擎工具，可快速提供实时、准确和真实的结果。
+        tool_label: Tavily Search
+        tool_name: tavily_search
+        tool_parameters:
+          days:
+            type: constant
+            value: 80
+          query:
+            type: mixed
+            value: '{{#conversation.nextSearchTopic#}}'
+          search_depth:
+            type: constant
+            value: advanced
+          time_range:
+            type: constant
+            value: month
+          topic:
+            type: constant
+            value: general
+        type: tool
+      height: 246
+      id: '1751523520167'
+      parentId: '1739244888446'
+      position:
+        x: 355.9737084839808
+        y: 311.88311889167835
+      positionAbsolute:
+        x: 994.4291626677771
+        y: 1012.7317621453844
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        author: LofiSu
+        desc: ''
+        height: 504
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"维度","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"general","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"（一般）","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"news","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"（新闻）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"意图","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"更宽泛的通用网页信息检索","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"专注于新闻事件、时事报道","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"数据源偏好","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"更倾向于","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"搜索引擎通用网页","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"（博客、论坛、百科、技术文档等）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"更倾向于","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"主流新闻媒体","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"（如
+          Reuters、BBC、CNN、新华网等）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"内容风格","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"包含观点、教程、分析、论坛讨论等","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"偏向","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"事实报道、客观新闻、官方声明","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"时效性权重","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"对“发布时间”不特别敏感，可能返回旧资料","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"更强调","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"最新信息","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"，默认提升近24-72小时的内容权重","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"搜索适用场景","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"通用知识、技术文档、学术背景查找、产品评价等","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"时政新闻、突发事件、实时市场变动、公司声明等","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"返回内容特征","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"包含：技术博客、Reddit帖子、StackOverflow、维基百科等","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"包含：新闻文章摘要、发布时间、新闻来源链接等","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"返回结果样式","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"结构可能更宽泛，来源更加多样化","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"内容通常来自结构良好的新闻门户，摘要更简洁准确","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"适合任务","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"AI生成内容背景搜索、长尾知识补全、非新闻RAG任务","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"多智能体新闻摘要、时事热点跟踪、财经舆情分析等","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"假设搜索关键词是：","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"\"OpenAI
+          新模型发布\"","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"使用
+          ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"general","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          主题可能返回：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Reddit
+          上关于新模型体验的讨论","type":"text","version":1}],"direction":"ltr","format":"","indent":1,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"一些博客的观点性评测","type":"text","version":1}],"direction":"ltr","format":"","indent":1,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"StackOverflow
+          用户对 API 更新的提问","type":"text","version":1}],"direction":"ltr","format":"","indent":1,"type":"listitem","version":1,"value":3},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"GitHub
+          上相关开源项目的动态","type":"text","version":1}],"direction":"ltr","format":"","indent":1,"type":"listitem","version":1,"value":4}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"使用
+          ","type":"text","version":1},{"detail":0,"format":16,"mode":"normal","style":"","text":"news","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          主题更可能返回：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"彭博社关于
+          OpenAI 新模型的发布报道","type":"text","version":1}],"direction":"ltr","format":"","indent":1,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"路透社提供的高层发言摘要","type":"text","version":1}],"direction":"ltr","format":"","indent":1,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"新浪科技/澎湃新闻上的事件报道稿件","type":"text","version":1}],"direction":"ltr","format":"","indent":1,"type":"listitem","version":1,"value":3}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 474
+      height: 504
+      id: '1751524524652'
+      position:
+        x: 1789.742759582297
+        y: 973.1892945630384
+      positionAbsolute:
+        x: 1789.742759582297
+        y: 973.1892945630384
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 474
+    viewport:
+      x: 56.815559834046326
+      y: -177.73191267659058
+      zoom: 0.6272498926649565
